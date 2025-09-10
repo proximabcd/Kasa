@@ -1,0 +1,20 @@
+@mixin small-screen {
+  @media (max-width: 375px) {
+    @content
+  }
+}
+
+.about {
+  width: 86%;
+  max-width: 1240px;
+  margin: 38px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include small-screen {
+    width: 335px;
+    margin: 20px auto;
+    gap: 20px;
+  }
+}

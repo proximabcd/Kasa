@@ -1,0 +1,17 @@
+* {
+  font-family: 'Montserrat';
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+}

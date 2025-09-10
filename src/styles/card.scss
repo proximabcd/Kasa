@@ -1,0 +1,39 @@
+@mixin small-screen {
+  @media (max-width: 375px) {
+    @content
+  }
+}
+
+.card {
+  display: block;
+  text-decoration: none;
+  width: 340px;
+  height: 340px;
+  position: relative;
+
+  @include small-screen {
+    width: 335px;
+    height: 255px;
+    margin-top: 22px;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(90%);
+  }
+
+  &__text {
+    width: 88%;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 143%;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}

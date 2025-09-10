@@ -1,0 +1,50 @@
+@mixin small-screen {
+  @media (max-width: 375px) {
+    @content
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 86%;
+  max-width: 1240px;
+  height: 68px;
+  margin: 45px auto 0 auto;
+
+  @include small-screen {
+    min-width: 335px;
+    height: 47px;
+    margin-top: 20px;
+  }
+}
+
+.logo {
+  @include small-screen {
+    width: 145px;
+  }
+}
+
+.navbar {
+  text-align: right;
+
+  &__link {
+    font-size: 24px;
+    font-weight: 500;
+    color: black;
+    padding-left: 57px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include small-screen {
+      font-size: 12px;
+      padding-left: 26px;
+      text-transform: uppercase;
+    }
+  }
+}

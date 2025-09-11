@@ -28,13 +28,20 @@
 
 .navbar {
   text-align: right;
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+
+  @include small-screen {
+    display: block;
+  }
 
   &__link {
     font-size: 24px;
     font-weight: 500;
     color: black;
-    padding-left: 57px;
     text-decoration: none;
+    padding-left: 57px;
     white-space: nowrap;
 
     &:hover {

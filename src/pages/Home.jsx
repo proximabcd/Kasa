@@ -12,8 +12,8 @@ function Home() {
             <Banner image={image} text={text} />
             <div className="card-list">
                 {accomList.map(({ id, title, cover }) =>
-                    <Link to={`/ad/${id}`}>
-                        <Card key={id} title={title} cover={cover} />
+                    <Link key={id} to={`/ad/${id}`}>
+                        <Card title={title} cover={cover} />
                     </Link>
                 )}
             </div>

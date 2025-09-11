@@ -7,10 +7,6 @@
 .collapse {
   width: 100%;
 
-  @include small-screen {
-    width: 335px;
-  }
-
   &__label {
     font-size: 18px;
     font-weight: 700;

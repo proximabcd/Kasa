@@ -1,8 +1,4 @@
-@mixin small-screen {
-  @media (max-width: 375px) {
-    @content
-  }
-}
+@use "mixins" as *;
 
 .banner {
   width: 86%;

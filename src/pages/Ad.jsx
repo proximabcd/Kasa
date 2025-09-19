@@ -15,19 +15,22 @@ library.add(fas, far, fab)
 function Ad() {
     const { id } = useParams()
     const navigate = useNavigate()
-    const idState = accomList.some(ad => ad.id === id)
+    const stars = Array(5).fill(0)
+    const colors = {
+        red: "#ff6060",
+        grey: "#e3e3e3"
+    }
+    const adProps = accomList.find((ad) => ad.id === id)
+
     useEffect(() => {
-        if (!idState) {
+        if (!adProps) {
             navigate("/error")
         }
-    }, [id])
-    if (idState) {
-        const adProps = accomList.find((ad) => ad.id === id)
-        const adHost = adProps.host.name.split(" ")
-        const adRating = []
-        for (let i = 0; i < 5; i++) {
-            (i < adProps.rating) ? adRating.push(true) : adRating.push(false)
-        }
+    }, [id, adProps])
+
+    if (!adProps) {
+        null
+    } else {
         return (
             <div style={{ flex: 1 }}>
                 <Slideshow slides={adProps.pictures} />
@@ -45,19 +48,18 @@ function Ad() {
                         <div className="ad__container_d">
                             <div className="ad__host">
                                 <div className="ad__hostname">
-                                    {adHost.map((host, index) =>
+                                    {adProps.host.name.split(" ").map((host, index) =>
                                         <p key={index}>{host}</p>
                                     )}
                                 </div>
                                 <img src={adProps.host.picture} alt={`Photo propriétaire ${adProps.host.name}`} className="ad__hostpic" />
                             </div>
                             <div className="ad__rating">
-                                {adRating.map((star, index) =>
-                                    (star === true) ? (
-                                        <FontAwesomeIcon key={index} icon="fa-solid fa-star" className="icon" style={{ color: "#ff6060" }} />
-                                    ) : (
-                                        <FontAwesomeIcon key={index} icon="fa-solid fa-star" className="icon" style={{ color: "#e3e3e3" }} />
-                                    )
+                                {stars.map((star, index) =>
+                                    <FontAwesomeIcon
+                                        key={index} icon="fa-solid fa-star" className="icon"
+                                        style={{ color: `${(adProps.rating) > index ? colors.red : colors.grey}` }}
+                                    />
                                 )}
                             </div>
                         </div>
@@ -75,8 +77,6 @@ function Ad() {
                 </div>
             </div>
         )
-    } else {
-        return null
     }
 }
 

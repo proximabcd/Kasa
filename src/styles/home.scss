@@ -1,8 +1,4 @@
-@mixin small-screen {
-  @media (max-width: 375px) {
-    @content
-  }
-}
+@use "mixins" as *;
 
 .card-list {
   width: 86%;
@@ -12,8 +8,8 @@
   background-color: #f6f6f6;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 45px;
+  justify-content: start;
+  gap: 60px;
 
   @include small-screen {
     width: 335px;

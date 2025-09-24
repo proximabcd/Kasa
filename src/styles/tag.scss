@@ -1,0 +1,32 @@
+@use "_mixins.scss" as *;
+
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+  @include small-screen {
+    padding-top: 0;
+    margin-top: 10px;
+  }
+
+  &__item {
+    min-width: 115px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 25px;
+    line-height: 143%;
+    color: white;
+    background-color: #ff6060;
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+    margin: 0 10px 10px 0;
+
+    @include small-screen {
+      min-width: 84px;
+      font-size: 10px;
+      height: 18px;
+    }
+  }
+}

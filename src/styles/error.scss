@@ -1,8 +1,4 @@
-@mixin small-screen {
-  @media (max-width: 620px) {
-    @content
-  }
-}
+@use "_mixins.scss" as *;
 
 .error {
   flex: 1;
